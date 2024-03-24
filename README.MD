@@ -16,7 +16,11 @@ Below is the FPS tested with avia and velodyne 32 spinning lidar from FastLIO2 a
 <div  align="center">  
 <img src="https://github.com/gaoxiang12/faster-lio/blob/main/doc/faster-lio-nclt.png" width = "1080" align=center />
 </div>
-
+```bash
+# 使用 mid-360 运行建图
+source devel/setup.bash && roslaunch livox_ros_driver2 msg_MID360.launch
+source devel/setup.bash && roslaunch faster_lio mapping_mid360.launch
+```
 # Quick Start
 ## Docker 
 ```bash
@@ -24,7 +28,7 @@ git clone
 cd faster-lio/docker
 docker-compose build
 docker-compose up
-```  
+```
 Before entering `docker-compose up` command, you should enter `xhost +local:docker` in the local terminal to enable docker to communicate with Xserver on the host.  
 
 update `bag` file path in `.env`, then run.
@@ -162,7 +166,7 @@ I0216 17:16:05.286816 26492 utils.h:59] >>> ===== Printing run time end =====
 Point clouds will be saved to PCD/scans.pcd by default. 
 
 - Online mode 
- 
+
 Online mode could be launched through rosrun/roslaunch/directly call. We use roslaunch as an example:
 
 1. Launch faster-lio: ```roslaunch faster_lio mapping_avia.launch``` This will give you a rviz window.
